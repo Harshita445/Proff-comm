@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reality Skipper</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Libre Baskerville', serif;
+      background: #634235;
+      color: #DFDACF;
+      text-align: center;
+    }
+    .container {
+      padding: 50px 20px;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+    #countdown {
+      font-size: 2em;
+      margin: 20px 0;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background: #a1887f;
+      color: #DFDACF;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #a1887f;
+    }
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(30, 20, 18, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #DFDACF;
+      font-size: 1.5em;
+      z-index: 1000;
+      display: none;
+    }
+    .testimonials {
+      margin-top: 50px;
+      font-size: 0.95em;
+      color: #e0cfc2;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="popup" id="evilAI">
+    <div>
+      <p><strong>EVIL AI:</strong> We've detected your life's a mess.</p>
+      <p>Proceeding to ship the Reality Skipper...</p>
+    </div>
+  </div>
+  <div class="container">
+    <h1>⏳ Reality Skipper</h1>
+    <p>Take control. One skip at a time.</p>
+    <div id="countdown">15 units left</div>
+    <button onclick="buyNow()">BUY YOURS NOW</button>
+    <div class="testimonials">
+      <p>"I skipped my physics exam and never came back." – Dev from DU</p>
+      <p>"Paused my breakup. Still paused." – Alina from JNU</p>
+      <p>"Fast-forwarded my whole degree. Totally worth it." – Aayush, IIT</p>
+    </div>
+  </div>
+
+  <script>
+    // Evil AI popup logic
+    setTimeout(() => {
+      document.getElementById('evilAI').style.display = 'flex';
+      setTimeout(() => {
+        document.getElementById('evilAI').style.display = 'none';
+      }, 4000);
+    }, 2000);
+
+    // Fake countdown logic
+    let units = 15;
+    const countdown = document.getElementById('countdown');
+
+    function decreaseCount() {
+      if (units > 1) {
+        units--;
+        countdown.textContent = `${units} units left`;
+      }
+    }
+    setInterval(decreaseCount, 3000);
+
+    // Buy button logic
+    function buyNow() {
+      window.location.href = "thankyou.html";
+    }
+  </script>
+</body>
+</html>
